@@ -1,0 +1,53 @@
+body {
+  color: #414141;               /* Dark gray */
+  background-color: #EEEEEE;    /* Light gray */
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 18px;    
+}
+
+h1,h2 {
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 36px;
+  font-weight: normal;    
+}
+
+
+ul {
+  list-style-type: circle;
+}
+
+ol {
+  list-style-type: lower-roman;
+}
+
+p {
+  text-align: left;
+}
+/* esempi da non usare
+em {
+  font-weight: bold;
+  font-style: normal;
+}
+
+strong {
+  font-weight: normal;
+  font-style: italic;
+}
+*/
+
+/*
+body {
+  color: #414141;               
+  background-color: #EEEEEE;    
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.6em;
+}
+
+*/

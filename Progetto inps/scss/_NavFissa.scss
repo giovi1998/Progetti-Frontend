@@ -1,0 +1,106 @@
+$MycolorBG:#005980;
+$MycolorBGButton: red;
+
+
+.navFissa{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    background-color: $MycolorBG;
+
+    & .contenitoreContatti {
+        margin-left: 390px;
+        font-size: 12px;
+    }
+
+    & .contenitoreContatti .navFissaUnica{
+       color:white;
+    }
+
+    & .contenitoreAccedereAiServizi{
+        margin-left: 15px;
+        font-size: 12px;
+
+    }
+    & .contenitoreAccedereAiServizi a{
+        border-radius: 15px;
+        width: 25px;
+        color:white;
+    }
+
+    & .contenitoreTrovaLaSede{
+        margin-left: 750px;
+        margin-right: 12px;
+        display: inline-block;
+        color:white;
+        align-items: center;
+    }
+    & .contenitoreTrovaLaSede .material-symbols-outlined{
+        font-size: 16px;
+    }
+    & .contenitoreTrovaLaSede .trovaLaSede{
+        font-size: 12px;
+        width: 25px;
+        color:white;
+    }
+    
+    & .lingua {
+        position: absolute;
+        display: flex;
+        margin-top: 25px;
+        right: 400px;
+        width: 100px;
+        height: 35px;
+        z-index: 1000;
+        top: 0;
+        flex-direction: row;
+        align-items: center;
+     }
+
+     & .lingua p{
+        align-self: center;
+        max-height: 17px;
+     }
+     
+     & .lingua img {
+        max-height: 13px;
+     }
+
+     & .lingua div.flag:not(.selected) {
+         display: none;
+     }
+
+     & .lingua div.flag.selected {
+         display: inline-block;
+         
+     }
+     & .lingua div p{
+        display: inline-block;
+        font-size: 12px;
+        color: white;
+    }
+
+    & .lingua:hover{
+        margin-top: 50px;
+        padding-left: 55px;
+        height: 200px;
+        background-color: grey;
+        z-index: 1000;
+    }
+     & .lingua:focus div.flag {
+        display:inline-block;
+        margin-top: 5px;
+
+     }
+
+     & .lingua:active p {
+        display:inline-block;
+        color:black;
+     }
+
+ 
+}

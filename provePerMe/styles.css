@@ -1,0 +1,21 @@
+.ContactMe {
+    background-color: yellow;
+    color: black;
+    width: 100px;
+    height: 55px;
+    transition: width 2.5s,color 2.5s,height 2.5s;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px black;
+}
+
+.ContactMe:hover {
+    background-color: yellowgreen;
+    color: white;
+    width: 500px;
+    height: 500px;
+  }
+
+  .ContactMe:active {
+    opacity: 0.5;
+  }
