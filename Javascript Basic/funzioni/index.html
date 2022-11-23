@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova funzioni</title>
+</head>
+<body>
+    <script>
+        /*if (age>18){
+            accessAllowed=true;
+        }else{
+            accessAllowed=false;
+        }
+        */
+        let age=19;
+        let accessAllowed = (age > 18) ? true : false; //It can be done with more than one
+        console.log(accessAllowed);
+        
+        /*The nullish coalescing operator
+        if a is defined, then a,
+        if a isn’t defined, then b.*/
+        let a,b='ciao';
+        let result=a??b;
+        console.log(result);
+        let user;
+        alert(user ?? "Anonymous"); // Anonymous (user is undefined)
+
+        function sayHi() {
+        alert( "Hello" );
+        }
+        
+        alert( sayHi ); // shows the function code
+
+        let func = sayHi;    // (2) copy
+
+        func(); // Hello     // (3) run the copy (it works)!
+        sayHi(); // Hello    //     this still works too (why wouldn't it)
+    </script>
+</body>
+</html>
