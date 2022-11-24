@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="elem">Begin</div>
+
+    <ul>
+        <li id="test">TEST</li>
+    </ul>
+
+    <ul>
+        <li>random</li>
+        <li>Passed</li>
+    </ul>
+
+    <ul id="test_to_closest">
+        <li id="random">random</li>
+        <li>random</li>
+        <li>last</li>
+    </ul>
+
+    <div>End</div>
+    <script>
+        
+        //window root 
+        alert(window.innerHeight);
+
+        //document html
+        document.body.style.background = "red";
+        // change it back after 1 second
+        setTimeout(() => document.body.style.background = "", 1000);
+        
+        alert(location.href); // shows current URL
+        if (confirm("Go to Wikipedia?")) {
+        location.href = "https://wikipedia.org"; // redirect the browser to another URL
+        }
+        
+        /*other useful funcion is:
+        innerHTML
+        offsetWidth 
+        The DOM represents HTML as a tree structure of tags. 
+        */
+        for (let i = 0; i < document.body.childNodes.length; i++) {
+        alert( document.body.childNodes[i] ); // Text, DIV, Text, UL, ..., SCRIPT
+        }
+
+          // get the element by id
+        let elem = document.getElementById('elem');
+        console.log(elem);
+        //select all last chold "li"b inside ul
+        let elements = document.querySelectorAll('ul > li:last-child');
+        console.log(elements);
+
+        //select the first
+        let element = document.querySelector('div');
+        console.log(element);
+        
+        
+            const el = document.getElementById('random');
+        /*   
+         closest ancestor with the id of "test_to_closest"
+        */
+        console.log(el.closest('#test_to_closest'));
+
+        /* get ALL divs in the document, remember it's a collection!!!!
+            if you want the first element
+            let firstdiv = document.getElementsByTagName('div')[0];
+        */
+
+        let divs = document.getElementsByTagName('div');
+ 
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
