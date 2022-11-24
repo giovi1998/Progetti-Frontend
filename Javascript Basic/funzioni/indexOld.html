@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova funzioni</title>
+</head>
+<body>
+    <button>Ciao</button>
+    <input type="text" name="nome" placeholder="nome">
+    <script>
+        /*if (age>18){
+            accessAllowed=true;
+        }else{
+            accessAllowed=false;
+        }
+        */
+        let age=19;
+        let accessAllowed = (age > 18) ? true : false; //It can be done with more than one
+        console.log(accessAllowed);
+        
+        /*The nullish coalescing operator
+        if a is defined, then a,
+        if a isn’t defined, then b.*/
+        let a,b='ciao';
+        let result=a??b;
+        console.log(result);
+        let user;
+        alert(user ?? "Anonymous"); // Anonymous (user is undefined)
+
+        function sayHi() {
+        alert( "Hello" );
+        }
+        
+        alert( sayHi ); // shows the function code
+
+        let func = sayHi;    // (2) copy
+
+        func(); // Hello     // (3) run the copy (it works)!
+        sayHi(); // Hello    //     this still works too (why wouldn't it)
+
+        function ask(question, yes, no) { 
+             if (confirm(question)) yes()
+            else no();
+        }
+        let arg1=1,arg2=2,arg3=3;
+        let expression=arg1+arg2+arg3;
+        let func1 = (arg1, arg2, arg3) => expression; 
+        alert (func1);
+        /*Shorten version of 
+        let func1 = function(arg1, arg2, ..., argN) {
+         return expression;
+        };
+        */
+       const myButton = document.querySelector('button');//seleziona il button
+       const myInput = document.querySelector('input');//seleziona l'input
+
+       
+       let i=0;
+     
+        
+        /*funzione anonima
+        myButton.onclick = function (){ 
+            alert(i);
+            i++;
+       }*/
+
+       myButton.addEventListener('click', ()=>{
+           myButton.innerHTML = i;
+           i++;
+           console.log(myInput.value); 
+       })
+    </script>
+</body>
+
+</html>
