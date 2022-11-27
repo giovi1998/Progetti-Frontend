@@ -23,6 +23,9 @@
         <li>random</li>
         <li>last</li>
     </ul>
+    <div id="elemBlinking" 
+    style="color:red;font-size:120%"
+    >A blinking element</div>
 
     <div>End</div>
     <script>
@@ -73,11 +76,89 @@
         */
 
         let divs = document.getElementsByTagName('div');
- 
 
+        setInterval(() => elemBlinking.hidden = !elemBlinking.hidden, 1000);
 
+        
+        document.body.myData = {
+        name: 'Caesar',
+        title: 'Imperator',
+        };
 
+        alert(document.body.myData.title); // Imperator
 
+        /*
+        elem.hasAttribute(name) – checks for existence.
+        elem.getAttribute(name) – gets the value.
+        elem.setAttribute(name, value) – sets the value.
+        elem.removeAttribute(name) – removes the attribute.
+        */
+        
+        alert(elemBlinking.getAttribute('style')); // color:red;font-size:120%
+
+        /*
+        CREATING ELEMENTS:
+        Elemnts, text
+        */
+
+        // 1. Create <div> element
+        let div = document.createElement('div');
+
+        // 2. Set its class to "alert"
+        div.className = "alert";
+
+        // 3. Fill it with the content
+        div.innerHTML = "<strong>Hi there!</strong> You've read an important message."; 
+        
+        //append to the body
+        document.body.append(div);
+        /*
+        document.body.before(div);
+        oppure
+        div.before('<p>Hello</p>', document.createElement('hr'));
+        document.body.prepend(div);
+        document.body.append(div);
+        document.body.after(div);
+        */
+        //remove elemnent
+        setTimeout(()=>div.remove(), 5000);
+        
+        /*
+        scrollWidth/scrollHeight – the width/height of the content, just like clientWidth/clientHeight, but also include scrolled-out, invisible part of the element.
+        scrollLeft/scrollTop – width/height of the scrolled out upper part of the element, starting from its upper-left corner.
+        */
+        
+        /*two main mode to add a event
+
+        -normal
+        -use a addeventlistener
+        -(But don't use) inline
+
+        */
+       div.onclick = function (e){
+        e.preventDefault();//eviti il comportamento di default
+        console.log("I'm on click");
+       }
+       div.addEventListener('click', ()=>{
+        console.log("I'm on click on addeventlistener");
+       })
+       /*e.target very important -> select the element you choose*/
+
+       /*capturing,bubbling e stopPropagation vedere documentazione*/
+
+       /*create your own events and gives some attribute*/
+
+       const myEvents = new Events("myCostumEvents",
+       {
+        bubbles: true, 
+        cancelable: true,
+        composed: true
+       });
+    
+
+       document.addEventListener("myCostumEvent", e => {
+        console.log(e);
+       })
 
 
 
