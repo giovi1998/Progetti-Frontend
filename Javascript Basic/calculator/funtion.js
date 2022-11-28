@@ -45,7 +45,7 @@ for (var i = 0; i < myButtonsSecondary.length; i++) { //takes values of the butt
     function myButtonFormNumbers(myButton){
         myButton.addEventListener("click", function (e) {
             let valueOfPrevious = document.querySelector(".form-control").value; 
-            console.log(myButton.value);
+            console.log( "Hai schiacciato : " + myButton.value);
             document.querySelector(".form-control").value=
             valueOfPrevious + myButton.value;
         });
@@ -55,36 +55,192 @@ for (var i = 0; i < myButtonsSecondary.length; i++) { //takes values of the butt
     
 
 function myButtonEqualSign(equalSign){
-    let resultOfEquetions=0;
     equalSign.addEventListener("click", function (e) {
-
-        let valueOfPrevious = document.querySelector(".form-control").value; 
-        valueOfPrevious = valueOfPrevious;
+        let num=0;
+        let valueOfPrevious = document.querySelector(".form-control").value; //prendi valore precedente dentro al form
         console.log(valueOfPrevious);
-        for(let i=0; valueOfPrevious[i]=='/n';i++){
-            switch (valueOfPrevious[i]){
-                case '+':
-                    if(valueOfPrevious[0]){
-                        alert("Hai messo un segno meno,più o di divisione. Riprova!")
-                        break;
-                    }else{
-                        resultOfEquetions=valueOfPrevious[i-1]+valueOfPrevious[i+1];
-                        console.log(resultOfEquetions);
-                        break;
-                    }
-                case '-':
-                resultOfEquetions=valueOfPrevious[i-1]-valueOfPrevious[i+1];
-                console.log(resultOfEquetions);
-                break;
-                case '/':
-                resultOfEquetions=valueOfPrevious[i-1]/valueOfPrevious[i+1];
-                console.log(resultOfEquetions);
-                break;
+        if(valueOfPrevious.includes('+') && valueOfPrevious.includes('*')){
+            const myArray = valueOfPrevious.split('+'); //splita
+            /*first scenario result=num1*num2+num3
+            split divided num1*num2 and num3
+            */
+           if (myArray[0].includes('*')){
+            console.log(myArray[0]);
+            console.log(myArray[1]);
+ 
+            multiplication(myArray[0],num);
+            assignToFormEquation(ans+ parseInt(myArray[1]));
+            console.log("numero salvato: " + ans + ' più parte dellarray ' + myArray[1] );
+           }
+           /*second scenario result=num1+num2*num3
+            split divided num1 and num2*num3
+            */
+           else{
+                console.log(myArray[1]);
+                console.log(myArray[0]);
+     
+                multiplication(myArray[1],num);
+                assignToFormEquation(ans+ parseInt(myArray[0]));
+                console.log("numero salvato: " + ans + ' più parte dellarray ' + myArray[0] );
             }
+          
+            
+        }else if(valueOfPrevious.includes('-') && valueOfPrevious.includes('*')){
+            const myArray = valueOfPrevious.split('-'); //splita
+            /*first scenario result=num1*num2+num3
+            split divided num1*num2 and num3
+            */
+           if (myArray[0].includes('*')){
+            console.log(myArray[0]);
+            console.log(myArray[1]);
+ 
+            multiplication(myArray[0],num);
+            assignToFormEquation(ans - parseInt(myArray[1]));
+            console.log("numero salvato: " + ans + ' meno parte dellarray ' + myArray[1] );
+           }
+           /*second scenario result=num1+num2*num3
+            split divided num1 and num2*num3
+            */
+           else{
+                console.log(myArray[1]);
+                console.log(myArray[0]);
+     
+                multiplication(myArray[1],num);
+                assignToFormEquation(ans - parseInt(myArray[0]));
+                console.log("numero salvato: " + ans + ' meno parte dellarray ' + myArray[0] );
+            }
+          
+            
         }
-        console.log(resultOfEquetions);
-    });
+        else if(valueOfPrevious.includes('-')){
+            minus(valueOfPrevious,num);
+        }else  if(valueOfPrevious.includes('+')){
+            sum(valueOfPrevious,num);
+        }else if(valueOfPrevious.includes('*')){
+            multiplication(valueOfPrevious,num);
+        } else{
+            alert('Errore caso non contemplato');
+        }
+        }); 
+        console.log(ans);
+}
+
+
+
+function myButtonEnter(){
+    let valueOfForm = document.querySelector(".form-control").addEventListener("keypress", function(event) {
+        let num=0;
+        let valueOfPrevious = document.querySelector(".form-control").value; //prendi valore precedente dentro al form
+        console.log(valueOfPrevious);
+        if(valueOfPrevious.includes('+') && valueOfPrevious.includes('*')){
+            const myArray = valueOfPrevious.split('+'); //splita
+            /*first scenario result=num1*num2+num3
+            split divided num1*num2 and num3
+            */
+           if (myArray[0].includes('*')){
+            console.log(myArray[0]);
+            console.log(myArray[1]);
+ 
+            multiplication(myArray[0],num);
+            assignToFormEquation(ans+ parseInt(myArray[1]));
+            console.log("numero salvato: " + ans + ' più parte dellarray ' + myArray[1] );
+           }
+           /*second scenario result=num1+num2*num3
+            split divided num1 and num2*num3
+            */
+           else{
+                console.log(myArray[1]);
+                console.log(myArray[0]);
+     
+                multiplication(myArray[1],num);
+                assignToFormEquation(ans+ parseInt(myArray[0]));
+                console.log("numero salvato: " + ans + ' più parte dellarray ' + myArray[0] );
+            }
+          
+            
+        }else if(valueOfPrevious.includes('-') && valueOfPrevious.includes('*')){
+            const myArray = valueOfPrevious.split('-'); //splita
+            /*first scenario result=num1*num2+num3
+            split divided num1*num2 and num3
+            */
+           if (myArray[0].includes('*')){
+            console.log(myArray[0]);
+            console.log(myArray[1]);
+ 
+            multiplication(myArray[0],num);
+            assignToFormEquation(ans - parseInt(myArray[1]));
+            console.log("numero salvato: " + ans + ' meno parte dellarray ' + myArray[1] );
+           }
+           /*second scenario result=num1+num2*num3
+            split divided num1 and num2*num3
+            */
+           else{
+                console.log(myArray[1]);
+                console.log(myArray[0]);
+     
+                multiplication(myArray[1],num);
+                assignToFormEquation(ans - parseInt(myArray[0]));
+                console.log("numero salvato: " + ans + ' meno parte dellarray ' + myArray[0] );
+            }
+          
+            
+        }
+        else if(valueOfPrevious.includes('-')){
+            minus(valueOfPrevious,num);
+        }else  if(valueOfPrevious.includes('+')){
+            sum(valueOfPrevious,num);
+        }else if(valueOfPrevious.includes('*')){
+            multiplication(valueOfPrevious,num);
+        } else{
+            alert('Errore caso non contemplato');
+        }
+        }); 
+        console.log(ans);
+}
+
+
+function assignToFormEquation(ans){
+    document.querySelector(".form-control").value= //value update with ans
+    ans;
+}
+
+function sum(valueOfPrevious,num){
+    const myArray = valueOfPrevious.split('+'); //splita
+    //ans=num1+num2;
+    for(let i=0; i< myArray.length; i++){
+    num = parseInt(myArray[i]) + num;
+    console.log('numero sommato: '+ num);
+    }
+    ans=num;
+    assignToFormEquation(ans);
+}
+
+function minus(valueOfPrevious,num){
+    const myArray = valueOfPrevious.split('-'); //splita
+    //ans=num1+num2;
+    for(let i=0; i< myArray.length; i++){
+    num = parseInt(myArray[i]) - num;
+    console.log('numero sottrato: '+ num);
+    }
+    ans=num;
+    assignToFormEquation(ans);
+}
+
+function multiplication (valueOfPrevious,num){
+    const myArray = valueOfPrevious.split('*'); //splita
+            //ans=num1+num2;
+            for(let i=0; i< myArray.length; i++){
+            if(num!==0){
+                num = parseInt(myArray[i]) * num;
+            }else{
+                num = parseInt(myArray[i]);
+            }
+            console.log('numero multiplicato : '+ num);
+            }
+            ans=num;
+            assignToFormEquation(ans);
 }
 myButtonEqualSign(equalSign);
+myButtonEnter();
 console.log(assignStyleToButton(myButtonsWarning,myButtonsSecondary));
 
