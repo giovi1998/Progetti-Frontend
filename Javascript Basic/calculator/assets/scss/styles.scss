@@ -1,6 +1,32 @@
-.btnWarningStyles{
-    display: inline-block;
+.myButtonsWarning{
+    border-radius: 5px;
+    padding: 8px 25px;
+    width: 150px;
+    flex-shrink: 2;
+    background-color: #ffc107;
+    color:black;
+}
+.myButtonsSecondary{
     border-radius: 5px;
     padding: 8px 20px;
-    margin: 3px;
+    width: 150px;
+    background-color: #5c636a;;
+    color:white;
+}
+@media only screen and (max-width: 575px) {
+    .myButtonsWarning{
+        border-radius: 5px;
+        padding: 8px 25px;
+        width: 400px;
+        flex-shrink: 2;
+        background-color: #ffc107;
+        color:black;
+    }
+    .myButtonsSecondary{
+        border-radius: 5px;
+        padding: 8px 20px;
+        width: 400px;
+        background-color: #5c636a;;
+        color:white;
+    }
 }

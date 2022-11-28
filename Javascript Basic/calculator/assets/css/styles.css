@@ -1,1 +1,1 @@
-.btnWarningStyles{display:inline-block;border-radius:5px;padding:8px 20px;margin:3px}
+.myButtonsWarning{border-radius:5px;padding:8px 25px;width:150px;flex-shrink:2;background-color:#ffc107;color:#000}.myButtonsSecondary{border-radius:5px;padding:8px 20px;width:150px;background-color:#5c636a;color:#fff}@media only screen and (max-width: 575px){.myButtonsWarning{border-radius:5px;padding:8px 25px;width:400px;flex-shrink:2;background-color:#ffc107;color:#000}.myButtonsSecondary{border-radius:5px;padding:8px 20px;width:400px;background-color:#5c636a;color:#fff}}
