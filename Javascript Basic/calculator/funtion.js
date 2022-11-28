@@ -52,7 +52,16 @@ for (var i = 0; i < myButtonsSecondary.length; i++) { //takes values of the butt
     }
     myButtonFormNumbers(myButton);
 }
+
     
+    function eraseMemory(){
+        let myButton=document.querySelector(".btn-outline-primary");
+        myButton.addEventListener("click", function (e) {
+            assignToFormEquation(0);
+        });
+    }
+
+
 
 function myButtonEqualSign(equalSign){
     equalSign.addEventListener("click", function (e) {
@@ -112,11 +121,31 @@ function myButtonEqualSign(equalSign){
           
             
         }
-        else if(valueOfPrevious.includes('-')){
+        else if(valueOfPrevious.includes('+') && valueOfPrevious.includes('-')){
+            const myArray = valueOfPrevious.split('+'); //splita
+            /*first scenario result=num1-num2+num3
+            split divided num1-num2 and num3
+            */
+           console.log("Array [0]: "+ myArray[0]);
+           console.log("Array [1]: "+ myArray[1]);
+
+           if(myArray[0].includes('-')){//num1-num2 and num3
+                minus(myArray[0],0);
+                assignToFormEquation(ans+ parseInt(myArray[1]));
+                console.log("numero salvato: " + ans);
+           }else if(myArray[1].includes('-')){
+            minus(myArray[1],0);//num1 and num2-num3
+            assignToFormEquation(ans + parseInt(myArray[0]));
+            console.log("numero salvato: " + ans);
+           } 
+        }else if(valueOfPrevious.includes('-') && (!valueOfPrevious.includes(('*')) || !valueOfPrevious.includes(('+')))){
+            console.log(!valueOfPrevious.includes(('*')) || !valueOfPrevious.includes(('+')));
             minus(valueOfPrevious,num);
-        }else  if(valueOfPrevious.includes('+')){
+        }else  if(valueOfPrevious.includes('+') && (!valueOfPrevious.includes(('*')) || !valueOfPrevious.includes(('-')))){
+            console.log(!valueOfPrevious.includes(('*')) || !valueOfPrevious.includes(('-')));
             sum(valueOfPrevious,num);
-        }else if(valueOfPrevious.includes('*')){
+        }else if(valueOfPrevious.includes('*') && (!valueOfPrevious.includes(('+')) || !valueOfPrevious.includes(('-')))){
+            console.log(!valueOfPrevious.includes(('+')) || !valueOfPrevious.includes(('-')));
             multiplication(valueOfPrevious,num);
         } else{
             alert('Errore caso non contemplato');
@@ -185,11 +214,31 @@ function myButtonEnter(){
           
             
         }
-        else if(valueOfPrevious.includes('-')){
+        else if(valueOfPrevious.includes('+') && valueOfPrevious.includes('-')){
+            const myArray = valueOfPrevious.split('+'); //splita
+            /*first scenario result=num1-num2+num3
+            split divided num1-num2 and num3
+            */
+           console.log("Array [0]: "+ myArray[0]);
+           console.log("Array [1]: "+ myArray[1]);
+
+           if(myArray[0].includes('-')){//num1-num2 and num3
+                minus(myArray[0],0);
+                assignToFormEquation(ans+ parseInt(myArray[1]));
+                console.log("numero salvato: " + ans);
+           }else if(myArray[1].includes('-')){
+            minus(myArray[1],0);//num1 and num2-num3
+            assignToFormEquation(ans + parseInt(myArray[0]));
+            console.log("numero salvato: " + ans);
+           }
+        }else if(valueOfPrevious.includes('-') && (!valueOfPrevious.includes(('*')) || !valueOfPrevious.includes(('+')))){
+            console.log(!valueOfPrevious.includes(('*')) || !valueOfPrevious.includes(('+')));
             minus(valueOfPrevious,num);
-        }else  if(valueOfPrevious.includes('+')){
+        }else  if(valueOfPrevious.includes('+') && (!valueOfPrevious.includes(('*')) || !valueOfPrevious.includes(('-')))){
+            console.log(!valueOfPrevious.includes(('*')) || !valueOfPrevious.includes(('-')));
             sum(valueOfPrevious,num);
-        }else if(valueOfPrevious.includes('*')){
+        }else if(valueOfPrevious.includes('*') && (!valueOfPrevious.includes(('+')) || !valueOfPrevious.includes(('-')))){
+            console.log(!valueOfPrevious.includes(('+')) || !valueOfPrevious.includes(('-')));
             multiplication(valueOfPrevious,num);
         } else{
             alert('Errore caso non contemplato');
@@ -217,9 +266,15 @@ function sum(valueOfPrevious,num){
 
 function minus(valueOfPrevious,num){
     const myArray = valueOfPrevious.split('-'); //splita
-    //ans=num1+num2;
+    //ans=num1-num2;
     for(let i=0; i< myArray.length; i++){
-    num = parseInt(myArray[i]) - num;
+    if(num==0){ //if num1 =0
+        num = parseInt(myArray[i]); 
+    }else if(num>parseInt(myArray[i])){ //if num1 > num2 -> num1-num2
+        num = num-parseInt(myArray[i]); 
+    }else{ //if num1<num2 num1-num2
+        num = num-parseInt(myArray[i]);
+    }
     console.log('numero sottrato: '+ num);
     }
     ans=num;
@@ -242,5 +297,6 @@ function multiplication (valueOfPrevious,num){
 }
 myButtonEqualSign(equalSign);
 myButtonEnter();
+eraseMemory();
 console.log(assignStyleToButton(myButtonsWarning,myButtonsSecondary));
 
