@@ -8,3 +8,4 @@ L'utente, appena entrato nella pagina, visualizzerà 0 come valore del counter e
 src="assets\images\Counter.png"
 />
 
+![](\assets\images\Counter.png ?raw=true "Counter")
