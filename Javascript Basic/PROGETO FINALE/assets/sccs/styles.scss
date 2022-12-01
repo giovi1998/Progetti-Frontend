@@ -1,19 +1,32 @@
 //Prova utilizzo bulma framework CSS
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 
+
 body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: linear-gradient(#4491ba, #9198e5); //css function
-    height: 100vh;
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
+    height: 500px;
+}   
 
 div{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+h1,p{ 
+    justify-content: center;
+    align-items: center;
+  
+}
+
+h1{
+    font: 400 64px/76px Google Sans,-apple-system,BlinkMacSystemFont,sans-serif;
+}
+p{
+    max-width: 600px;
+    font-family: 'Montserrat', sans-serif;
 }
