@@ -20,6 +20,7 @@ function minusNumberInput(myButtonsMinus){
 
 function eraseInput(myButtonsErase){
     myButtonsErase.addEventListener("click", ()=>  {
+        clearInterval(helpingIntervalToStartCounting);
         updateInput(0);
     });
 }
@@ -42,7 +43,7 @@ function helpInput(myButtonsHelp){
 function updateInput(number){
     if(number==0){
         document.querySelector(".input").value= //value update to zero
-        0;
+        '';
     }else{
         let valueOfCounter = Number(document.querySelector(".input").value); // select old value of Input and make sure we work with number
         document.querySelector(".input").value= //value update
