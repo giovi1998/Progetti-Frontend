@@ -24,12 +24,7 @@ export function createDiv(className){
     h1.className = className;
     h1.appendChild(cont);
     return h1;
- }
-
- export function appendH1(h1){
-    document.body.append(h1);
- }
- 
+ } 
 
 export function createButton(innerOfButton){
     // 1. Create the button

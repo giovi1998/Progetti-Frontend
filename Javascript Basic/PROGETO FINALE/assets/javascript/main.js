@@ -5,8 +5,7 @@
  import {createButton} from "./modules/createElementsHTML.js";
  import {createInput} from "./modules/createElementsHTML.js";
  import {styleButton} from "./modules/createElementsHTML.js";
- import {appendElementToADiv} from "./modules/createElementsHTML.js";appendH1
- import {appendH1} from "./modules/createElementsHTML.js";
+ import {appendElementToADiv} from "./modules/createElementsHTML.js";
 
 //creeate H1 
  let content = "Counter";
@@ -14,7 +13,7 @@
  let h1= createH1(className,content);
 
 //append to the H1 to body element
- appendH1(h1);
+document.body.append(h1);
 
  //Create a new container
  let divContent = createDiv("mr-5 ml-5");
