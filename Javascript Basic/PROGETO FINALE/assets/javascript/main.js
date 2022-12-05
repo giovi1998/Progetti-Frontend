@@ -1,4 +1,4 @@
- //-------import Funtions for CreateElements-------
+ //-------import Funtions from CreateElements.js-------
  import {createDiv} from "./modules/createElementsHTML.js";
  import {createP} from "./modules/createElementsHTML.js";
  import {createH1} from "./modules/createElementsHTML.js";
