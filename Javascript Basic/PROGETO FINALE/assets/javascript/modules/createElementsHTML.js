@@ -35,7 +35,7 @@ export function createButton(innerOfButton){
 
  export function createInput(){
     let inputForm = document.createElement("input");
-    inputForm.setAttribute("type", "text");
+    inputForm.setAttribute("type", "number");
     inputForm.setAttribute("class", "input is-loading is-dark mb-6");
     inputForm.setAttribute("placeholder", "0");
     return inputForm;
