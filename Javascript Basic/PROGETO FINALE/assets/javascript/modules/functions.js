@@ -16,7 +16,7 @@ export function minusNumberInput(myButtonsMinus){
 export function eraseInput(myButtonsErase){
     myButtonsErase.addEventListener("click", ()=>  {
         clearInterval(helpingIntervalToStartCounting);
-        conditionClickAgain=!conditionClickAgain;
+        conditionClickAgain=true;
         updateInput(0);
     });
 }
