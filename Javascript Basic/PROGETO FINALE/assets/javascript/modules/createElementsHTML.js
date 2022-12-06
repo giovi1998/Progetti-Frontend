@@ -9,7 +9,7 @@ export function createDiv(className){
  }
 
  export function createP(content){
-    // 1. Create <div> element
+    // 1. Create <p> element
     let p = document.createElement('p');
     // 2. Set content
     p.textContent = content;
@@ -17,7 +17,7 @@ export function createDiv(className){
  }
 
  export function createH1(className, content){
-    // 1. Create <div> element
+    // 1. Create <H1> element
     let h1 = document.createElement('H1');
     let cont = document.createTextNode(content);
     // 2. Set its class
@@ -34,7 +34,9 @@ export function createButton(innerOfButton){
  }
 
  export function createInput(){
+   // 1. Create the input
     let inputForm = document.createElement("input");
+    //2.  Set attributes
     inputForm.setAttribute("type", "number");
     inputForm.setAttribute("class", "input is-loading is-dark mb-6");
     inputForm.setAttribute("placeholder", "0");
@@ -42,7 +44,7 @@ export function createButton(innerOfButton){
  }
  
  export function styleButton(button, value){
-    //Set its class and style
+    //Set class and style
     button.className = ''+value;
 
  }
