@@ -37,14 +37,21 @@ class User {
 // come si va ad aggiungere un user che è anche admin?
 
 class Admin extends User{
+    #IsAdmin='false'; //private proprieties
+    /*
+    #isPrivateFunction(){
+        //code
+    }
+    */
     constructor(value){
         super(value);
-        this.IsAdmin=true;
+        this.#IsAdmin=true;
     }
 }
 
 let admin1= new Admin("Sandro Gotta");
-
+alert( admin1 instanceof Admin ); // true
+alert( admin1 instanceof User ); // true
 console.log(admin1);
 //User can also be created in this way
 let user2 = new User("Fili Cidu");
