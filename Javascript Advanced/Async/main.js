@@ -54,11 +54,12 @@ let timeoutPromise = new Promise((resolve,reject) => {
     }, 2000);
 });
 
-//rendo la funzione asyncrona
-
+//rendo la funzione asyncrona ->restituisce promise
+//await aspetta finche non ha il valore
 async function hello(){
-    return 'ciao';
+    return greeting = await Promise.resolve('ciao');
 }
+//hello() 
 
 hello().then(function(value){
     console.log(value);

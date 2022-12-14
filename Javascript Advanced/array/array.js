@@ -25,3 +25,20 @@ console.log(citta);
 //eliminare primo elemento
 citta.shift();
 console.log(citta);
+
+let greeting ={};
+console.log(greeting + 'ciao');
+
+function bark(){
+    console.log('ciaoq');
+
+}
+bark.animal='dog';
+
+let num=5;
+[1,2,3].map(num=>{
+    if(typeof num ==='number')return;
+    return num*2;
+})
+let a=b=0;
+console.log(b);
