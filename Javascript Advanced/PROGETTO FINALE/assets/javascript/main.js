@@ -1,21 +1,18 @@
 //-------import Funtions from httpAPI.js-------
-import {getDataID} from "./modules/httpAPI.js";
-import {getDataNews} from "./modules/httpAPI.js";getDataNews
+import {getAllNews, getNews} from "./modules/httpAPI.js";
+import {getNewFromID} from "./modules/httpAPI.js";
 //-------import Funtions from utilities.js-------
-import {appendElementToADiv, createP} from "./modules/utilities.js";
-import {createDiv} from "./modules/utilities.js";
+
 
 //globali
 let dataId;
 
-let divMain=createDiv();
-let divMain1=createDiv();
-getDataNews('https://hacker-news.firebaseio.com/v0/item/8863.json?print=pretty')
-.then(res => res.json())
-.then(function(json){
-    dataId=json;
-    console.log(dataId);
-});
+//getNewFromID(8863);
+
+//getAllNews();
+let topTenNews= await getNews(10);
+console.log(topTenNews);
+
 /*
 getDataID('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty')
 .then(res => res.json())

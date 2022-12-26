@@ -18,6 +18,11 @@ export function createDiv(className){
     return p;
  }
 
+ export function getItemFromJSON(json){
+   let arrayOfTenNews=map
+   return 
+ }
+
  export function createH1(className, content){
     // 1. Create <H1> element
     let h1 = document.createElement('H1');
