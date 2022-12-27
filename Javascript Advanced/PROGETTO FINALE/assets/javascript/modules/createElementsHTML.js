@@ -8,7 +8,7 @@ export function createDiv(className){
     return div;
  }
 
- export function createCard(divMain,urlPassed,title,divContentOfParagraph,timeOfNews){
+ export function createCard(divMain,urlPassed,urlOfTheNewsElemente,title,timeOfNews){
    //----------------card----------------
    let divCard = document.createElement('div');
    divCard.className = "card mt-2 ml-6 mr-6";
@@ -31,6 +31,7 @@ export function createDiv(className){
                               appendElementToADiv(divMediaLeft,figure);
                                     //----------------Image is inside Figure----------------
                                     let image = document.createElement('img');
+                                    image.className='is-rounded is-128x128';
                                     image.src = urlPassed;
                                     image.ariaPlaceholder = "Placeholder image";
                                     figure.appendChild(image);
@@ -49,10 +50,12 @@ export function createDiv(className){
                divCardContent1.className = "card-content";
                divCardContent.appendChild(divCardContent1);
                      //----------------content is inside card content1----------------
-                     let divContent = document.createElement('div');
-                     divContent.className = "content has-text-info";
-                     divContent.textContent =divContentOfParagraph;
-                     divCardContent1.appendChild(divContent);
+                     let urlOfTheNews = document.createElement('a');
+                     urlOfTheNews.className = "content has-text-info";
+                     urlOfTheNews.target = "_blank";
+                     urlOfTheNews.href=urlOfTheNewsElemente;
+                     urlOfTheNews.textContent='Click here to read the news!';
+                     divCardContent1.appendChild(urlOfTheNews);
                      //----------------time is inside card content1----------------
                      let pTime = document.createElement('div');
                      pTime.className = "content has-text-grey";

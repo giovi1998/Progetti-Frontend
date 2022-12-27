@@ -37,16 +37,16 @@ appendElementToADiv(divHeader,p1);
 //----------------Container with all cards----------------
 let divMain = createDiv("container is-flex");
 
-createCard(divMain,"www.google.com","Ciao a tutti sono il titolo","Ciao a tutti sono il paragrafo della carta",450);
-createCard(divMain,"www.google.com","Ciao a tutti sono il titolo1","Ciao a tutti sono il paragrafo della carta1",360);
-createCard(divMain,"www.google.com","Ciao a tutti sono il titolo","Ciao a tutti sono il paragrafo della carta",450);
-createCard(divMain,"www.google.com","Ciao a tutti sono il titolo1","Ciao a tutti sono il paragrafo della carta1",360);
-createCard(divMain,"www.google.com","Ciao a tutti sono il titolo","Ciao a tutti sono il paragrafo della carta",450);
-createCard(divMain,"www.google.com","Ciao a tutti sono il titolo1","Ciao a tutti sono il paragrafo della carta1",360);
-createCard(divMain,"www.google.com","Ciao a tutti sono il titolo","Ciao a tutti sono il paragrafo della carta",450);
-createCard(divMain,"www.google.com","Ciao a tutti sono il titolo1","Ciao a tutti sono il paragrafo della carta1",360);
-createCard(divMain,"www.google.com","Ciao a tutti sono il titolo","Ciao a tutti sono il paragrafo della carta",450);
-createCard(divMain,"www.google.com","Ciao a tutti sono il titolo1","Ciao a tutti sono il paragrafo della carta1",360);
+createCard(divMain,"https://i.imgur.com/qLKO9VM.jpeg","www.google.com","Ciao a tutti sono il titolo",450);
+createCard(divMain,"https://source.unsplash.com/user/c_v_r","www.google.com","Ciao a tutti sono il titolo",450);
+createCard(divMain,"https://source.unsplash.com/user/c_v_r","www.google.com","Ciao a tutti sono il titolo",450);
+createCard(divMain,"https://source.unsplash.com/user/c_v_r","www.google.com","Ciao a tutti sono il titolo",450);
+createCard(divMain,"https://source.unsplash.com/user/c_v_r","www.google.com","Ciao a tutti sono il titolo",450);
+createCard(divMain,"https://source.unsplash.com/user/c_v_r","www.google.com","Ciao a tutti sono il titolo",450);
+createCard(divMain,"https://source.unsplash.com/user/c_v_r","www.google.com","Ciao a tutti sono il titolo",450);
+createCard(divMain,"https://source.unsplash.com/user/c_v_r","www.google.com","Ciao a tutti sono il titolo",450);
+createCard(divMain,"https://source.unsplash.com/user/c_v_r","www.google.com","Ciao a tutti sono il titolo",450);
+createCard(divMain,"https://source.unsplash.com/user/c_v_r","www.google.com","Ciao a tutti sono il titolo",450);
 
 //Create Load More News
 let myButtonsLoad = createButton('Load More News');
