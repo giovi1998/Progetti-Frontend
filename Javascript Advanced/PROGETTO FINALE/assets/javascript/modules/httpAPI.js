@@ -4,6 +4,7 @@ const urlOfData = "https://hacker-news.firebaseio.com/v0/newstories.json" // URL
 let dataOfTopTen;
 let datas = new Array;
 let dataOfElementInCache;
+let counterOfNews=0; //usato in TopNews perchè cosi non ricarica stesse informazioni
 
 
 export async function getNewFromID(itemNumber){
@@ -34,28 +35,40 @@ export async function getNews(){
 }
 
 export async function getTopNews(numberOfNews){
+  if(counterOfNews==0){
     for(let i=0;i<numberOfNews;i++){
-        await getNewFromID(dataOfTopTen[i]);
-        //console.log(dataOfElementInCache);
-        datas.push(dataOfElementInCache);//id of the News
+      await getNewFromID(dataOfTopTen[i]);
+      //console.log(dataOfElementInCache);
+      datas.push(dataOfElementInCache);//id of the News
+  }
+  console.log(datas);
+  }else{
+    debugger;
+    for(let i=counterOfNews;i<numberOfNews;i++){
+      await getNewFromID(dataOfTopTen[i]);
+      //console.log(dataOfElementInCache);
+      datas.push(dataOfElementInCache);//id of the News
     }
-    console.log(datas);
+    debugger;
+  }
+  counterOfNews=numberOfNews;
+  console.log(datas);
     
 }
 
-export async function getTopNewsId(numberOfNews){
-    await getTopNewsFromApi(numberOfNews); //attendi che si setti l'array con le informazioni
+export async function getTopNewsId(){
+    await getTopNewsFromApi(); //attendi che si setti l'array con le informazioni
     return dataOfTopTen;
 }
 
-async function getTopNewsFromApi(numberOfNews){
+async function getTopNewsFromApi(){
     //----------------Prendi tutti i 500 dati----------------
-    let newsElement= await axios.get(urlOfData) 
+    await axios.get(urlOfData) 
     .then(function (response) {
         // handle success
         console.log(response.data);
         let array=new Array;
-        for(let i=0;i<numberOfNews;i++) {
+        for(let i=0;i<500;i++) {
             array.push(response.data[i]);//id of the News
         }
         dataOfTopTen=array;
