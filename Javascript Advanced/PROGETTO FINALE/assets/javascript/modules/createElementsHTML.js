@@ -8,11 +8,63 @@ export function createDiv(className){
     return div;
  }
 
+ export function createCard(divMain,urlPassed,title,divContentOfParagraph,timeOfNews){
+   //----------------card----------------
+   let divCard = document.createElement('div');
+   divCard.className = "card mt-2 ml-6 mr-6";
+   divMain.appendChild(divCard);
+         //----------------card-content----------------
+         let divCardContent = document.createElement('div');
+         divCardContent.className = "card-content";
+         divCard.appendChild(divCardContent);
+               //----------------Media is-align----------------
+               let divMedia = document.createElement('div');
+               divMedia.className = "media is-align-items-center";
+               divCardContent.appendChild(divMedia);
+                     //----------------Media left is inside Media is-align----------------
+                     let divMediaLeft = document.createElement('div');
+                     divMediaLeft.className = "media-left";
+                     divMedia.appendChild(divMediaLeft);
+                              //----------------Figure is inside Media-Left----------------
+                              let figure = document.createElement('figure');
+                              figure.className = "image is-128x128";
+                              appendElementToADiv(divMediaLeft,figure);
+                                    //----------------Image is inside Figure----------------
+                                    let image = document.createElement('img');
+                                    image.src = urlPassed;
+                                    image.ariaPlaceholder = "Placeholder image";
+                                    figure.appendChild(image);
+                     //----------------Media content is inside Media is-align----------------
+                     let divMediaContent = document.createElement('div');
+                     divMediaContent.className = "media-content";
+                     divMedia.appendChild(divMediaContent);
+                              //----------------H1 is inside Media-Content----------------
+                              let h1 = document.createElement('H1');
+                              let content = document.createTextNode(title);
+                              h1.className = "title is-3 ml-2 mr-2";
+                              h1.appendChild(content);
+                              appendElementToADiv(divMediaContent,h1);
+               //----------------card-content is inside card content----------------
+               let divCardContent1 = document.createElement('div');
+               divCardContent1.className = "card-content";
+               divCardContent.appendChild(divCardContent1);
+                     //----------------content is inside card content1----------------
+                     let divContent = document.createElement('div');
+                     divContent.className = "content has-text-info";
+                     divContent.textContent =divContentOfParagraph;
+                     divCardContent1.appendChild(divContent);
+                     //----------------time is inside card content1----------------
+                     let pTime = document.createElement('div');
+                     pTime.className = "content has-text-grey";
+                     pTime.textContent ='Publicata '+timeOfNews + ' secondi';
+                     divCardContent1.appendChild(pTime);
+ }
+
  export function createP(content){
     // 1. Create <p> element
     let p = document.createElement('p');
     //2. Center the P element
-    p.className='is-centered text-align-center   ';
+    p.className='is-centered text-align-center';
     // 3. Set content
     p.textContent = content;
     return p;
@@ -35,16 +87,6 @@ export function createButton(innerOfButton){
     return button;
  }
 
- export function createInput(){
-   // 1. Create the input
-    let inputForm = document.createElement("input");
-    //2.  Set attributes
-    inputForm.setAttribute("type", "number");
-    inputForm.setAttribute("class", "input is-loading is-dark mb-6");
-    inputForm.setAttribute("placeholder", "0");
-    return inputForm;
- }
- 
  export function styleButton(button, value){
     //Set class and style
     button.className = ''+value;

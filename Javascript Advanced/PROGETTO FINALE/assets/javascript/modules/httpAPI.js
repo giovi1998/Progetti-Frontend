@@ -43,13 +43,11 @@ export async function getTopNews(numberOfNews){
   }
   console.log(datas);
   }else{
-    debugger;
     for(let i=counterOfNews;i<numberOfNews;i++){
       await getNewFromID(dataOfTopTen[i]);
       //console.log(dataOfElementInCache);
       datas.push(dataOfElementInCache);//id of the News
     }
-    debugger;
   }
   counterOfNews=numberOfNews;
   console.log(datas);
@@ -65,7 +63,7 @@ async function getTopNewsFromApi(){
     //----------------Prendi tutti i 500 dati----------------
     await axios.get(urlOfData) 
     .then(function (response) {
-        // handle success
+        //handle success
         console.log(response.data);
         let array=new Array;
         for(let i=0;i<500;i++) {

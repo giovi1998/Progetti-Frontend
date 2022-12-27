@@ -12,7 +12,15 @@ body{
     justify-content: center;
     align-items: center;
 }
-
+.container.is-flex {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    &.card{
+        display: block;
+        width: 100%;
+    }
+}
 p{
     color:white;
 }
