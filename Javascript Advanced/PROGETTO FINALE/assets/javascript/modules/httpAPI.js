@@ -65,3 +65,32 @@ async function getTopNewsFromApi(numberOfNews){
         console.log(error);
       });
 }   
+
+export async function setImageFromTitle(OPENAI_API_KEY,description,numberOfImages,size){
+// axios POST request
+const options = {
+  url: 'https://api.openai.com/v1/images/generations',
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json;charset=UTF-8',
+    'Authorization': `Bearer ${OPENAI_API_KEY}`
+  },
+  responseType: 'json', // default
+  data: {
+    prompt: description,
+    n:numberOfImages,
+    size: size
+  }
+};
+
+axios(options)
+  .then(response => {
+    console.log(response.status);
+    /*----------------If you want all'information of your request-response----------------
+    console.log(response);*/
+
+    console.log(response.data.data[0]);
+    return response.data.data[0];
+  });
+}
