@@ -49,7 +49,7 @@ export function createDiv(className){
                      //----------------time is inside card content1----------------
                      let pTime = document.createElement('div');
                      pTime.className = "content has-text-grey";
-                     pTime.textContent ='Publish '+timeOfNews;
+                     pTime.textContent ='Published '+timeOfNews;
                      divCardContent1.appendChild(pTime);
  }
  
