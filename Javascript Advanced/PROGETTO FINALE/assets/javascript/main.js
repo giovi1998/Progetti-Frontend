@@ -1,21 +1,17 @@
 //----------------import Funtions from httpAPI.js----------------
-import {setImageFromTitle,getTopNewsId,getTopNews} from "./modules/httpAPI.js";
-import {getNewFromID} from "./modules/httpAPI.js";
+import {getTopNewsId,getTopNews,datas,counterOfNews} from "./modules/httpAPI.js";
 
 //----------------import Funtions from CreateElements.js----------------
+import {createCardWithoutImage} from "./modules/createElementsHTML.js";
 import {createDiv} from "./modules/createElementsHTML.js";
 import {createP} from "./modules/createElementsHTML.js";
 import {createH1} from "./modules/createElementsHTML.js";
 import {createButton} from "./modules/createElementsHTML.js";
-import {createCard} from "./modules/createElementsHTML.js";
 import {styleButton} from "./modules/createElementsHTML.js";
 import {appendElementToADiv} from "./modules/createElementsHTML.js";
 
-//----------------import Funtions from API_KEY.js----------------
-import {OPENAI_API_KEY} from "./modules/API_KEY.js";
-
 await getTopNewsId();
-await getTopNews(10);
+
 //----------------creeate H1---------------- 
 let content = "HACKER NEWS LETTER";
 let className = "title is-1 mt-5 has-text-white";
@@ -36,21 +32,34 @@ appendElementToADiv(divHeader,p1);
 
 //----------------Container with all cards----------------
 let divMain = createDiv("container is-flex");
-
-createCard(divMain,"https://i.imgur.com/qLKO9VM.jpeg","www.google.com","Ciao a tutti sono il titolo",450);
-createCard(divMain,"https://source.unsplash.com/user/c_v_r","www.google.com","Ciao a tutti sono il titolo",450);
-createCard(divMain,"https://source.unsplash.com/user/c_v_r","www.google.com","Ciao a tutti sono il titolo",450);
-createCard(divMain,"https://source.unsplash.com/user/c_v_r","www.google.com","Ciao a tutti sono il titolo",450);
-createCard(divMain,"https://source.unsplash.com/user/c_v_r","www.google.com","Ciao a tutti sono il titolo",450);
-createCard(divMain,"https://source.unsplash.com/user/c_v_r","www.google.com","Ciao a tutti sono il titolo",450);
-createCard(divMain,"https://source.unsplash.com/user/c_v_r","www.google.com","Ciao a tutti sono il titolo",450);
-createCard(divMain,"https://source.unsplash.com/user/c_v_r","www.google.com","Ciao a tutti sono il titolo",450);
-createCard(divMain,"https://source.unsplash.com/user/c_v_r","www.google.com","Ciao a tutti sono il titolo",450);
-createCard(divMain,"https://source.unsplash.com/user/c_v_r","www.google.com","Ciao a tutti sono il titolo",450);
-
+//----------------Get info----------------
+await getTopNews(10);
+//----------------Create Card image----------------
+for(let i=0;i<10;i++){
+    createCardWithoutImage(i,divMain,datas[i].url,datas[i].title,datas[i].time);
+}
 //Create Load More News
 let myButtonsLoad = createButton('Load More News');
-styleButton(myButtonsLoad,'button buttonMinus is-danger is-light mt-2 mb-6');
+styleButton(myButtonsLoad,'button buttonMinus is-info is-light mt-2 mb-6');
 document.body.append(myButtonsLoad);
-setImageFromTitle(OPENAI_API_KEY,"Tree",1,"256x256");
-await getTopNews(20);
+
+
+    
+myButtonsLoad.addEventListener("click", ()=>loadNews(),false);
+    
+async function loadNews(){
+    //nel mentre che carica
+    myButtonsLoad.className='button is-warning is-loading mt-2 mb-6';
+    let start=datas.length;
+    let end =datas.length+10;
+    console.log("Start is"+start);
+    console.log("End is"+ end);
+    //debugger;
+    await getTopNews(end);
+    for(let i=start;i<end;i++){
+        createCardWithoutImage(i,divMain,datas[i].url,datas[i].title,datas[i].time);
+    }
+    styleButton(myButtonsLoad,'button buttonMinus is-info is-light mt-2 mb-6');
+    
+}
+

@@ -1,0 +1,67 @@
+ export async function createCard(index,urlOfTheImage){
+   let divMediaLeft=document.querySelector("div.media-left.mediaLeft-"+index+1);
+            //----------------Image is inside Figure----------------
+            let image = new Image;
+            image.className='is-rounded is-128x128';
+            image.src = urlOfTheImage;
+            image.ariaPlaceholder = "Placeholder image";
+            divMediaLeft.appendChild(image);
+ }
+
+  /*----------------Make sure to encrypt your Key (is like your password)----------------
+ For more information and to claim a API_KEY go to https://beta.openai.com/account/api-keys
+ */
+export const OPENAI_API_KEY='sk-XXXXXXXX';
+
+
+//----------------import Funtions from API_KEY.js----------------
+import {OPENAI_API_KEY} from "./modules/API_KEY.js";
+
+async function setImageFromTitle(dataOfElementInCache,OPENAI_API_KEY,numberOfImages,size){
+    // axios POST request
+    let description=dataOfElementInCache.title;
+    const options = {
+      url: 'https://api.openai.com/v1/images/generations',
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json;charset=UTF-8',
+        'Authorization': `Bearer ${OPENAI_API_KEY}`
+      },
+      responseType: 'json', // default
+      data: {
+        prompt: description,
+        n:numberOfImages,
+        size: size
+      }
+    };
+    
+    axios(options)
+      .then(response => {
+        console.log(response.status);
+        /*----------------If you want all'information of your request-response----------------
+        console.log(response);*/
+        dataOfElementInCache.urlOfPictures=response.data.data[0].url;
+        console.log(response.data.data[0].url);
+        return response.data.data[0].url;
+      });
+    }
+
+
+    export async function getNewFromID(itemNumber,OPENAI_API_KEY){
+        const URL='https://hacker-news.firebaseio.com/v0/item/'+itemNumber+'.json?print=pretty';
+        let newsElement = await axios.get(URL)
+        .then(function (response) {
+            // handle success
+            //console.log(response.data + ' dati in cache');
+            console.log(response.data);
+            let timeConvert = timeConverter(response.data.time);
+            dataOfElementInCache=response.data;
+            dataOfElementInCache.time=timeConvert;
+          })
+          .catch(function (error) {
+            // handle error
+            console.log(error);
+          });
+          await setImageFromTitle(dataOfElementInCache,OPENAI_API_KEY,1,"256x256")
+    }

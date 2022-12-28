@@ -16,9 +16,11 @@ body{
     display: flex;
     flex-direction: row;
     flex-flow: wrap;
+    justify-content: space-around;
+
     &.card{
         display: block;
-        width: 100%;
+        max-width: auto;
     }
 }
 

@@ -8,10 +8,10 @@ export function createDiv(className){
     return div;
  }
 
- export function createCard(divMain,urlPassed,urlOfTheNewsElemente,title,timeOfNews){
+ export function createCardWithoutImage(indexElement,divMain,urlOfTheNewsElemente,title,timeOfNews){
    //----------------card----------------
    let divCard = document.createElement('div');
-   divCard.className = "card mt-2 ml-6 mr-6";
+   divCard.className = `card mt-2 ml-6 mr-6`;
    divMain.appendChild(divCard);
          //----------------card-content----------------
          let divCardContent = document.createElement('div');
@@ -23,18 +23,8 @@ export function createDiv(className){
                divCardContent.appendChild(divMedia);
                      //----------------Media left is inside Media is-align----------------
                      let divMediaLeft = document.createElement('div');
-                     divMediaLeft.className = "media-left";
+                     divMediaLeft.className = `media-left mediaLeft-${indexElement+1}`;
                      divMedia.appendChild(divMediaLeft);
-                              //----------------Figure is inside Media-Left----------------
-                              let figure = document.createElement('figure');
-                              figure.className = "image is-128x128";
-                              appendElementToADiv(divMediaLeft,figure);
-                                    //----------------Image is inside Figure----------------
-                                    let image = document.createElement('img');
-                                    image.className='is-rounded is-128x128';
-                                    image.src = urlPassed;
-                                    image.ariaPlaceholder = "Placeholder image";
-                                    figure.appendChild(image);
                      //----------------Media content is inside Media is-align----------------
                      let divMediaContent = document.createElement('div');
                      divMediaContent.className = "media-content";
@@ -59,9 +49,10 @@ export function createDiv(className){
                      //----------------time is inside card content1----------------
                      let pTime = document.createElement('div');
                      pTime.className = "content has-text-grey";
-                     pTime.textContent ='Publicata '+timeOfNews + ' secondi';
+                     pTime.textContent ='Publish '+timeOfNews;
                      divCardContent1.appendChild(pTime);
  }
+ 
 
  export function createP(content){
     // 1. Create <p> element

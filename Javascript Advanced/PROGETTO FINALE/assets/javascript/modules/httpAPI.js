@@ -2,9 +2,9 @@ const urlOfData = "https://hacker-news.firebaseio.com/v0/newstories.json" // URL
 
 //----------------Variabili globali----------------
 let dataOfTopTen;
-let datas = new Array;
+export let datas = new Array;
 let dataOfElementInCache;
-let counterOfNews=0; //usato in TopNews perchè cosi non ricarica stesse informazioni
+export let counterOfNews=0; //usato in TopNews perchè cosi non ricarica stesse informazioni
 
 
 export async function getNewFromID(itemNumber){
@@ -12,8 +12,11 @@ export async function getNewFromID(itemNumber){
     let newsElement = await axios.get(URL)
     .then(function (response) {
         // handle success
+        //console.log(response.data + ' dati in cache');
         console.log(response.data);
+        let timeConvert = timeConverter(response.data.time);
         dataOfElementInCache=response.data;
+        dataOfElementInCache.time=timeConvert;
       })
       .catch(function (error) {
         // handle error
@@ -38,21 +41,21 @@ export async function getTopNews(numberOfNews){
   if(counterOfNews==0){
     for(let i=0;i<numberOfNews;i++){
       await getNewFromID(dataOfTopTen[i]);
-      //console.log(dataOfElementInCache);
-      datas.push(dataOfElementInCache);//id of the News
+      datas.push(dataOfElementInCache);//id of the News    
   }
   console.log(datas);
   }else{
     for(let i=counterOfNews;i<numberOfNews;i++){
       await getNewFromID(dataOfTopTen[i]);
-      //console.log(dataOfElementInCache);
       datas.push(dataOfElementInCache);//id of the News
     }
   }
   counterOfNews=numberOfNews;
+  console.log('Nel counter sono stati aggiunti: '+ counterOfNews);
   console.log(datas);
     
 }
+
 
 export async function getTopNewsId(){
     await getTopNewsFromApi(); //attendi che si setti l'array con le informazioni
@@ -75,33 +78,17 @@ async function getTopNewsFromApi(){
         // handle error
         console.log(error);
       });
-}   
+}  
 
-export async function setImageFromTitle(OPENAI_API_KEY,description,numberOfImages,size){
-// axios POST request
-const options = {
-  url: 'https://api.openai.com/v1/images/generations',
-  method: 'POST',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json;charset=UTF-8',
-    'Authorization': `Bearer ${OPENAI_API_KEY}`
-  },
-  responseType: 'json', // default
-  data: {
-    prompt: description,
-    n:numberOfImages,
-    size: size
-  }
-};
-
-axios(options)
-  .then(response => {
-    console.log(response.status);
-    /*----------------If you want all'information of your request-response----------------
-    console.log(response);*/
-
-    console.log(response.data.data[0]);
-    return response.data.data[0];
-  });
+function timeConverter(UNIX_timestamp){
+  var a = new Date(UNIX_timestamp * 1000);
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var year = a.getFullYear();
+  var month = months[a.getMonth()];
+  var date = a.getDate();
+  var hour = a.getHours();
+  var min = a.getMinutes();
+  var sec = a.getSeconds();
+  var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+  return time;
 }
