@@ -7,7 +7,7 @@ Se l’utente clicca sul pulsante “Load more”, l’applicazione dovrà prend
 
 # Visualizzazione Desktop
 <img 
-src="assets\images\desktopV2.png"
+src="assets\images\desktopV1.png"
 />
 <img 
 src="assets\images\desktopV2.png"
