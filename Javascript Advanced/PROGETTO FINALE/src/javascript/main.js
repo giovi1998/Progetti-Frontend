@@ -2,13 +2,13 @@
 import {getTopNewsId,getTopNews,datas,counterOfNews} from "./modules/httpAPI.js";
 
 //----------------import Funtions from CreateElements.js----------------
-import {createCardWithoutImage} from "./modules/createElementsHTML.js";
-import {createDiv} from "./modules/createElementsHTML.js";
-import {createP} from "./modules/createElementsHTML.js";
-import {createH1} from "./modules/createElementsHTML.js";
-import {createButton} from "./modules/createElementsHTML.js";
-import {styleButton} from "./modules/createElementsHTML.js";
-import {appendElementToADiv} from "./modules/createElementsHTML.js";
+import {createCardWithoutImage} from "./modules/htmlElements.js";
+import {createDiv} from "./modules/htmlElements.js";
+import {createP} from "./modules/htmlElements.js";
+import {createH1} from "./modules/htmlElements.js";
+import {createButton} from "./modules/htmlElements.js";
+import {styleButton} from "./modules/htmlElements.js";
+import {appendElementToADiv} from "./modules/htmlElements.js";
 
 await getTopNewsId();
 
@@ -21,17 +21,19 @@ document.body.append(h1);
 
 //----------------Create Div of the Header with Paragraph and title----------------
 let divHeader = createDiv("mr-5 ml-5");
-let content1 = "Last News of the Hacker News. Below you can see Title - Time when it's public"+
-"I tried to create an Automatic pictures from OpenAI DELL-EI.";
-let content2 = "For more information see the GitHub repository.";
+let content1 = "Last News of the Hacker News. Below you can see Title, link to the news and Time when it's published. For more information see the"; 
 let p = createP(content1);
-let p1 = createP(content2);
 //----------------append p element to div element----------------
 appendElementToADiv(divHeader,p);
-appendElementToADiv(divHeader,p1);
+let urlOfTheNews = document.createElement('a');
+urlOfTheNews.className = "content has-text-info";
+urlOfTheNews.target = "_blank";
+urlOfTheNews.href="https://github.com/giovi1998/Progetti-Frontend/tree/master/Javascript%20Advanced/PROGETTO%20FINALE";
+urlOfTheNews.textContent=' GitHub repository.';
+p.appendChild(urlOfTheNews);
 
 //----------------Container with all cards----------------
-let divMain = createDiv("container is-flex");
+let divMain = createDiv("container");
 //----------------Get info----------------
 await getTopNews(10);
 //----------------Create Card image----------------
@@ -62,4 +64,3 @@ async function loadNews(){
     styleButton(myButtonsLoad,'button buttonMinus is-info is-light mt-2 mb-6');
     
 }
-

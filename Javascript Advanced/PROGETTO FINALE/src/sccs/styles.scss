@@ -13,10 +13,9 @@ body{
     align-items: center;
 }
 
-.container.is-flex {
-    display: flex;
-    flex-flow: wrap;
-    justify-content: space-around;
+.container {
+    display: block;
+
     &.card {
         max-width: 1000px !important;
     }
