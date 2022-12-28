@@ -11,11 +11,11 @@ export function createDiv(className){
  export function createCardWithoutImage(indexElement,divMain,urlOfTheNewsElemente,title,timeOfNews){
    //----------------card----------------
    let divCard = document.createElement('div');
-   divCard.className = `card mt-2 ml-6 mr-6`;
+   divCard.className = `card card-${indexElement+1}`+" is-full mt-2 ml-6 mr-6";
    divMain.appendChild(divCard);
          //----------------card-content----------------
          let divCardContent = document.createElement('div');
-         divCardContent.className = "card-content";
+         divCardContent.className = "card-content is-fullwidth";
          divCard.appendChild(divCardContent);
                //----------------Media is-align----------------
                let divMedia = document.createElement('div');
@@ -90,6 +90,7 @@ export function createButton(innerOfButton){
  export function appendElementToADiv(div,element){
     div.appendChild(element);
  }
+
 
 
  
