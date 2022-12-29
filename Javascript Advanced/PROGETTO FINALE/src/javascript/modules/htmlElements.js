@@ -32,7 +32,7 @@ export function createDiv(className){
                               //----------------H1 is inside Media-Content----------------
                               let h1 = document.createElement('H1');
                               let content = document.createTextNode(title);
-                              h1.className = "title is-3 ml-2 mr-2";
+                              h1.className = "title is-4 ml-2 mr-2";
                               h1.appendChild(content);
                               appendElementToADiv(divMediaContent,h1);
                //----------------card-content is inside card content----------------

@@ -13,8 +13,8 @@ import {appendElementToADiv} from "./modules/htmlElements.js";
 await getTopNewsId();
 
 //----------------creeate H1---------------- 
-let content = "HACKERNEWS LETTER";
-let className = "title is-1 has-text-white mt-5 mr-5 ml-5";
+let content = "HACKER NEWS LETTER";
+let className = "title is-3 has-text-white mt-5 mr-5 ml-5";
 let h1= createH1(className,content);
 //----------------append to the H1 to body element----------------
 document.body.append(h1);
