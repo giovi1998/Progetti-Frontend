@@ -13,8 +13,8 @@ import {appendElementToADiv} from "./modules/htmlElements.js";
 await getTopNewsId();
 
 //----------------creeate H1---------------- 
-let content = "HACKER NEWS LETTER";
-let className = "title is-1 mt-5 has-text-white";
+let content = "HACKERNEWS LETTER";
+let className = "title is-1 has-text-white mt-5 mr-5 ml-5";
 let h1= createH1(className,content);
 //----------------append to the H1 to body element----------------
 document.body.append(h1);
@@ -28,7 +28,7 @@ appendElementToADiv(divHeader,p);
 let urlOfTheNews = document.createElement('a');
 urlOfTheNews.className = "content has-text-info";
 urlOfTheNews.target = "_blank";
-urlOfTheNews.href="https://github.com/giovi1998/Progetti-Frontend/tree/master/Javascript%20Advanced/PROGETTO%20FINALE";
+urlOfTheNews.href="https://github.com/giovi1998/HackerNews.git";
 urlOfTheNews.textContent=' GitHub repository.';
 p.appendChild(urlOfTheNews);
 
