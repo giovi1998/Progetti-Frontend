@@ -17,4 +17,8 @@ src="src\images\desktopV2.png"
 src="assets\images\Counter Mobile.png"
 />
 # Link al sito
+<<<<<<< HEAD
 <link> https://hackernewsletter.netlify.app/ <!link>
+=======
+<link>https://hackernewsletter.netlify.app/<!link>
+>>>>>>> 68d6efd253e4430c290c0eb1aa08a050497a6fe9
