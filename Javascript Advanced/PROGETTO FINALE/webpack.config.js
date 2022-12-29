@@ -12,17 +12,16 @@ const stylesHandler = MiniCssExtractPlugin.loader;
 
 
 const config = {
-    entry: './src/main.js',
+    entry: './src/javascript/main.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
     },
     devServer: {
-        open: true,
-        host: 'localhost',
+        contentBase: './dist'
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'main.html',
+            template: 'index.html',
         }),
 
         new MiniCssExtractPlugin(),
@@ -44,11 +43,6 @@ const config = {
                 test: /\.s[ac]ss$/i,
                 use: [stylesHandler, 'css-loader', 'sass-loader'],
             },
-            {
-                test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-                type: 'asset',
-            },
-
             // Add your rules for custom modules here
             // Learn more about loaders from https://webpack.js.org/loaders/
         ],
