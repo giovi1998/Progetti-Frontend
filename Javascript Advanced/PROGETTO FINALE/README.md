@@ -17,4 +17,4 @@ src="src\images\desktopV2.png"
 src="assets\images\Counter Mobile.png"
 />
 # Link al sito
-<link> https://marvelous-phoenix-b79dd0.netlify.app/ <!link>
+<link> hackernewsletter.netlify.app <!link>

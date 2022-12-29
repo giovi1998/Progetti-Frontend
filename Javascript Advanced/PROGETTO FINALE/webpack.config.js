@@ -12,7 +12,7 @@ const stylesHandler = MiniCssExtractPlugin.loader;
 
 
 const config = {
-    entry: './src/javascript/main.js',
+    entry: 'index.html',
     output: {
         path: path.resolve(__dirname, 'dist'),
     },
@@ -51,7 +51,11 @@ const config = {
 };
 
 module.exports = {
+    entry: './src/javascript/main.js',
     output: {
         filename: 'bundle.js',
+      },
+    experiments: {
+      topLevelAwait: true
       }
 };
