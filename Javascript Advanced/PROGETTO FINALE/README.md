@@ -7,14 +7,17 @@ Se l’utente clicca sul pulsante “Load more”, l’applicazione dovrà prend
 
 # Visualizzazione Desktop
 <img 
-src="src\images\desktopV1.png"
+src="src\images\desktopV3.png"
 />
 <img 
 src="src\images\desktopV2.png"
 />
 # Visualizzazione Mobile
 <img 
-src="assets\images\Counter Mobile.png"
+src="src\images\mobileV1.png"
+/>
+<img 
+src="src\images\mobileV2.png"
 />
 # Link al sito
 <<<<<<< HEAD
