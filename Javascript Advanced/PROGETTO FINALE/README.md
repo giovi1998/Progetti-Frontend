@@ -20,8 +20,4 @@ src="src\images\mobileV1.png"
 src="src\images\mobileV2.png"
 />
 # Link al sito
-<<<<<<< HEAD
 <link> https://hackernewsletter.netlify.app/ <!link>
-=======
-<link>https://hackernewsletter.netlify.app/<!link>
->>>>>>> 68d6efd253e4430c290c0eb1aa08a050497a6fe9
