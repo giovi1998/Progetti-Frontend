@@ -1,25 +1,24 @@
-const urlOfData = "https://hacker-news.firebaseio.com/v0/newstories.json" // URL dalla quale estrapolare i dati
-
-//----------------Variabili globali----------------
+//----------------URL dalla quale estrapolare i dati----------------
+const urlOfData = "https://hacker-news.firebaseio.com/v0/newstories.json" 
+//----------------Globals Variables----------------
 let dataOfTopTen;
 export let datas = new Array;
 let dataOfElementInCache;
-export let counterOfNews=0; //usato in TopNews perchè cosi non ricarica stesse informazioni
+//----------------Used in TopNews to not load same information----------------
+export let counterOfNews=0; 
 
 
 export async function getNewFromID(itemNumber){
     const URL='https://hacker-news.firebaseio.com/v0/item/'+itemNumber+'.json?print=pretty';
     let newsElement = await axios.get(URL)
     .then(function (response) {
-        // handle success
-        //console.log(response.data + ' dati in cache');
-        console.log(response.data);
+        //----------------handle success----------------
         let timeConvert = timeConverter(response.data.time);
         dataOfElementInCache=response.data;
         dataOfElementInCache.time=timeConvert;
       })
       .catch(function (error) {
-        // handle error
+        //----------------handle error----------------
         console.log(error);
       });
 }
@@ -27,8 +26,7 @@ export async function getNewFromID(itemNumber){
 export async function getNews(){
     let newsElement = await axios.get(urlOfData)
     .then(function (response) {
-        // handle success
-        console.log(response.data);
+        //----------------handle success----------------
         return response.data;
       })
       .catch(function (error) {
@@ -41,41 +39,36 @@ export async function getTopNews(numberOfNews){
   if(counterOfNews==0){
     for(let i=0;i<numberOfNews;i++){
       await getNewFromID(dataOfTopTen[i]);
-      datas.push(dataOfElementInCache);//id of the News    
+      //----------------Push the News dataOfElementInCache----------------
+      datas.push(dataOfElementInCache);
   }
-  console.log(datas);
   }else{
     for(let i=counterOfNews;i<numberOfNews;i++){
       await getNewFromID(dataOfTopTen[i]);
       datas.push(dataOfElementInCache);//id of the News
     }
   }
-  counterOfNews=numberOfNews;
-  console.log('Nel counter sono stati aggiunti: '+ counterOfNews);
-  console.log(datas);
-    
+  counterOfNews=numberOfNews;   
 }
 
-
 export async function getTopNewsId(){
-    await getTopNewsFromApi(); //attendi che si setti l'array con le informazioni
+    await getTopNewsFromApi(); 
     return dataOfTopTen;
 }
 
 async function getTopNewsFromApi(){
-    //----------------Prendi tutti i 500 dati----------------
+    //----------------Get 500 News----------------
     await axios.get(urlOfData) 
     .then(function (response) {
-        //handle success
-        console.log(response.data);
+        //----------------handle success----------------
         let array=new Array;
         for(let i=0;i<500;i++) {
-            array.push(response.data[i]);//id of the News
+            array.push(response.data[i]);
         }
         dataOfTopTen=array;
       })
       .catch(function (error) {
-        // handle error
+        //----------------handle error----------------
         console.log(error);
       });
 }  
