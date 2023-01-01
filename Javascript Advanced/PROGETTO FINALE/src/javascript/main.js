@@ -50,14 +50,19 @@ document.body.append(myButtonsLoad);
 myButtonsLoad.addEventListener("click", ()=>loadNews(),false);
     
 async function loadNews(){
-    //----------------Set loading class when it's loading new News----------------
-    myButtonsLoad.className='button is-warning is-loading mt-2 mb-6';
     let start=datas.length;
     let end =datas.length+10;
+    if(start==500){
+        alert("There aren't new News you can read, you have exceeded the maximum number of News, please reload the page");
+    }else{
+            //----------------Set loading class when it's loading new News----------------
+    myButtonsLoad.className='button is-warning is-loading mt-2 mb-6';
+
     await getTopNews(end);
     for(let i=start;i<end;i++){
         createCardWithoutImage(i,divMain,datas[i].url,datas[i].title,datas[i].time);
     }
     styleButton(myButtonsLoad,'button buttonMinus is-info is-light mt-2 mb-6');
     
+    }
 }

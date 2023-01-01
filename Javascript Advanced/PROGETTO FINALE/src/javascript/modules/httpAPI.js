@@ -46,6 +46,7 @@ export async function getTopNews(numberOfNews){
     for(let i=counterOfNews;i<numberOfNews;i++){
       await getNewFromID(dataOfTopTen[i]);
       datas.push(dataOfElementInCache);//id of the News
+      console.log(datas);
     }
   }
   counterOfNews=numberOfNews;   
