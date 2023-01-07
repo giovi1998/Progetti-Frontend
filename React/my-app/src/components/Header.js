@@ -33,4 +33,5 @@ Header.propTypes = {
 //   backgroundColor: 'black',
 // }
 
+//it make us import with another name
 export default Header

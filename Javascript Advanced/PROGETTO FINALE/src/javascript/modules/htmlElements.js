@@ -8,6 +8,16 @@ export function createDiv(className){
     return div;
  }
 
+ export function createSpinner(className){
+   //----------------1. Create H element----------------
+   let h1 = createH1("title is-4 has-text-white mb-1 mt-2","Loading News");
+   //----------------3. Create div----------------
+   let div=createDiv(className);
+   //----------------2. Append to Body----------------
+   appendElementToADiv(div,h1);
+   return div;
+}
+
  export function createCardWithoutImage(indexElement,divMain,urlOfTheNewsElemente,title,timeOfNews){
    //----------------card----------------
    let divCard = document.createElement('div');
@@ -58,7 +68,7 @@ export function createDiv(className){
     //----------------1. Create <p> element---------------- 
     let p = document.createElement('p');
     //----------------2. Center the P element---------------- 
-    p.className='is-centered text-align-center';
+    p.className='text-align-center';
     //----------------3. Set content---------------- 
     p.textContent = content;
     return p;

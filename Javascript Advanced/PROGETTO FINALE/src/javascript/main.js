@@ -8,6 +8,7 @@ import {createP} from "./modules/htmlElements.js";
 import {createH1} from "./modules/htmlElements.js";
 import {createButton} from "./modules/htmlElements.js";
 import {styleButton} from "./modules/htmlElements.js";
+import {createSpinner} from "./modules/htmlElements.js";
 import {appendElementToADiv} from "./modules/htmlElements.js";
 
 await getTopNewsId();
@@ -34,10 +35,16 @@ p.appendChild(urlOfTheNews);
 
 //----------------Container with all cards----------------
 let divMain = createDiv("container");
+
+//----------------Create and append Spinner----------------
+let divSpinner = createSpinner("lds-dual-ring is-flex-direction-column mt-1");
+
 //----------------Get info----------------
 await getTopNews(10);
 //----------------Create Card image----------------
 for(let i=0;i<10;i++){
+    //hide element
+    divSpinner.className='is-hidden';
     createCardWithoutImage(i,divMain,datas[i].url,datas[i].title,datas[i].time);
 }
 //----------------Create Load More News----------------
