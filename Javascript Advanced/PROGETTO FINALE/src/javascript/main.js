@@ -43,9 +43,16 @@ let divSpinner = createSpinner("lds-dual-ring is-flex-direction-column mt-1");
 await getTopNews(10);
 //----------------Create Card image----------------
 for(let i=0;i<10;i++){
-    //hide element
+    //----------------Hide Element Spinner----------------
     divSpinner.className='is-hidden';
+    /*----------------Old Way----------------
     createCardWithoutImage(i,divMain,datas[i].url,datas[i].title,datas[i].time);
+    */
+   //----------------Lodash Way----------------
+    let url=_.get(datas[i],"url");
+    let title=_.get(datas[i],"title");
+    let time=_.get(datas[i],"time");
+    createCardWithoutImage(i,divMain,url,title,time);
 }
 //----------------Create Load More News----------------
 let myButtonsLoad = createButton('Load More News');
